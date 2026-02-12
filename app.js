@@ -152,6 +152,12 @@
       answers.free = freeText;
     }
 
+    const botTextEl = document.getElementById("bot-text");
+    const botText = (botTextEl?.value || "").trim();
+    if (botText) {
+      answers.bot = botText;
+    }
+
     if (!ok) return;
 
     submitBtn.disabled = true;
