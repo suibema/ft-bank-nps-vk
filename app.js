@@ -14,7 +14,7 @@
     try {
       await vkBridge.send('VKWebAppInit');
       const u = await vkBridge.send('VKWebAppGetUserInfo');
-      window.vkId = `${u.id}_VK`;
+      window.vkId = '${u.id}_VK';
     } catch (err) {
       setGlobalError(err)
     }
@@ -119,10 +119,6 @@
     });
 
     getVkUserId();
-    if (!window.vkId) {
-      setGlobalError("Не удалось определить vk-id. Откройте миниапп внутри VK.");
-      return;
-    }
 
     const answers = {};
     const required = ["q1", "q2", "q7", "q8"];
