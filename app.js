@@ -10,15 +10,6 @@
   const resultEl = document.getElementById("result");
   const globalErr = document.getElementById("error-global");
 
-  async function getVkUserId() {
-    try {
-      const u = await vkBridge.send('VKWebAppGetUserInfo');
-      window.vkId = '${u.id}_VK';
-    } catch (err) {
-      setGlobalError(err)
-    }
-  }
-
   function setGlobalError(msg) {
     globalErr.textContent = msg;
     globalErr.style.display = "block";
@@ -117,8 +108,6 @@
       p.style.display = "none";
     });
 
-    getVkUserId();
-
     const answers = {};
     const required = ["q1", "q2", "q7", "q8"];
     let ok = true;
@@ -161,7 +150,7 @@
     try {
       const payload = {
         form_id: FORM_ID,
-        tg_id: window.vkId,
+        tg_id: '${window.vkId}_VK',
         answers
       };
 
