@@ -108,6 +108,8 @@
       p.style.display = "none";
     });
 
+    const vkId = '${window.vkId}_VK'
+
     const answers = {};
     const required = ["q1", "q2", "q7", "q8"];
     let ok = true;
@@ -150,7 +152,7 @@
     try {
       const payload = {
         form_id: FORM_ID,
-        tg_id: '${window.vkId}_VK',
+        tg_id: vkId,
         answers
       };
 
