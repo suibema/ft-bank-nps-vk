@@ -8,12 +8,14 @@
   <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   <link rel="stylesheet" href="./styles.css" />
     <script>
+    window.vkId = NULL
     (async () => {
       try {
         await vkBridge.send('VKWebAppInit');
 
         const u = await vkBridge.send('VKWebAppGetUserInfo');
         console.log(u);
+        window.vkId = u.id
 
         const { access_token } = await vkBridge.send('VKWebAppGetAuthToken', {
           app_id: 54443582,
