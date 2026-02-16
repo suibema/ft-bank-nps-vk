@@ -12,7 +12,6 @@
 
   async function getVkUserId() {
     try {
-      await vkBridge.send('VKWebAppInit');
       const u = await vkBridge.send('VKWebAppGetUserInfo');
       window.vkId = '${u.id}_VK';
     } catch (err) {
@@ -162,7 +161,7 @@
     try {
       const payload = {
         form_id: FORM_ID,
-        tg_id: vkId,
+        tg_id: window.vkId,
         answers
       };
 
