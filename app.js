@@ -111,7 +111,7 @@
     const vkId = `${window.vkId}_VK`
 
     const answers = {};
-    const required = ["q1", "q2", "q7", "q8"];
+    const required = ["q1", "q2", "q7", "q8", "q9"];
     let ok = true;
 
     for (const q of required) {
